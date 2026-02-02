@@ -27,7 +27,11 @@ Built with a modern dark-themed GUI, intelligent duplicate detection, and safety
 
 ### 📹 Watch It In Action
 
-https://github.com/lunagray932-ctrl/file-organizer-renamer/assets/demo-video.mp4
+
+
+https://github.com/user-attachments/assets/25acbbe9-523a-4785-930e-6deec90d5c39
+
+
 
 *See the file organizer collecting scattered videos into organized folders*
 
