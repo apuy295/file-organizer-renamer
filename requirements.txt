@@ -1,0 +1,7 @@
+# File Organizer + Renamer - Dependencies
+# Python 3.8+ required
+
+# Optional: For EXIF date reading from photos
+# Enables date-based organization using photo metadata
+# If not installed, the app will use file modification dates instead
+Pillow>=10.0.0
