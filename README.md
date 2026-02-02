@@ -6,6 +6,7 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D4.svg)](https://www.microsoft.com/windows)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)]()
+[![Downloads](https://img.shields.io/github/downloads/lunagray932-ctrl/file-organizer-renamer/total?style=flat-square)](https://github.com/lunagray932-ctrl/file-organizer-renamer/releases)
 
 ---
 
