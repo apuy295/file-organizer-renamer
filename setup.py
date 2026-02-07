@@ -9,19 +9,6 @@ import tkinter as tk
 from tkinter import messagebox
 import subprocess
 
-def create_vbs_launcher():
-    """Create the VBS launcher file"""
-    vbs_content = '''Set oShell = CreateObject("WScript.Shell")
-scriptDir = CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptFullName)
-oShell.CurrentDirectory = scriptDir
-oShell.Run "pythonw gui_unified.py", 0
-Set oShell = Nothing'''
-    
-    vbs_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "File Organizer.vbs")
-    with open(vbs_path, 'w') as f:
-        f.write(vbs_content)
-    return vbs_path
-
 def create_desktop_shortcut():
     """Create desktop shortcut (Windows)"""
     try:
@@ -30,12 +17,12 @@ def create_desktop_shortcut():
         
         # Get paths
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        vbs_path = os.path.join(script_dir, "File Organizer.vbs")
+        pyw_path = os.path.join(script_dir, "gui_unified.pyw")
         icon_path = os.path.join(script_dir, "icon.ico")
         
-        # Create VBS launcher if it doesn't exist
-        if not os.path.exists(vbs_path):
-            vbs_path = create_vbs_launcher()
+        # Verify .pyw file exists
+        if not os.path.exists(pyw_path):
+            return False, f"gui_unified.pyw not found in {script_dir}"
         
         # Get desktop path
         desktop = os.path.join(os.path.expanduser("~"), "Desktop")
@@ -45,11 +32,15 @@ def create_desktop_shortcut():
         if os.path.exists(shortcut_path):
             os.remove(shortcut_path)
         
+        # Get pythonw.exe path
+        pythonw_path = os.path.join(os.path.dirname(sys.executable), "pythonw.exe")
+        
         # Create shortcut using PowerShell
         ps_script = f'''
 $shell = New-Object -ComObject WScript.Shell
 $shortcut = $shell.CreateShortcut("{shortcut_path}")
-$shortcut.TargetPath = "{vbs_path}"
+$shortcut.TargetPath = "{pythonw_path}"
+$shortcut.Arguments = '"{pyw_path}"'
 $shortcut.WorkingDirectory = "{script_dir}"
 $shortcut.IconLocation = "{icon_path},0"
 $shortcut.Save()
@@ -252,14 +243,11 @@ class SetupGUI:
     
     def finish_without_shortcut(self):
         """Finish without creating shortcut"""
-        # Make sure VBS launcher exists
-        create_vbs_launcher()
-        
         messagebox.showinfo(
             "Setup Complete!",
             "Setup finished!\n\n"
             "To launch the app:\n"
-            "• Double-click 'File Organizer.vbs'\n"
+            "• Double-click 'gui_unified.pyw'\n"
             "• Or create a shortcut later via the Help menu\n\n"
             "You don't need to run setup.py again."
         )

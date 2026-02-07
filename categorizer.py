@@ -6,6 +6,7 @@ Handles file categorization based on extensions
 import os
 from typing import Dict, List
 from pathlib import Path
+from collections import defaultdict
 from config import FILE_CATEGORIES, DEFAULT_CATEGORY
 
 
@@ -54,7 +55,12 @@ class FileCategorizer:
         if not os.path.isdir(directory):
             raise ValueError(f"'{directory}' is not a valid directory")
         
-        categorized_files = {}
+        categorized_files = defaultdict(list)
+        
+        def add_file(file_path):
+            """Helper to categorize and add a file"""
+            category = self.get_category(file_path)
+            categorized_files[category].append(file_path)
         
         try:
             if recursive:
@@ -62,12 +68,7 @@ class FileCategorizer:
                 for root, dirs, files in os.walk(directory):
                     for file in files:
                         file_path = os.path.join(root, file)
-                        category = self.get_category(file_path)
-                        
-                        if category not in categorized_files:
-                            categorized_files[category] = []
-                        
-                        categorized_files[category].append(file_path)
+                        add_file(file_path)
             else:
                 # Non-recursive: only scan top level
                 for item in os.listdir(directory):
@@ -75,19 +76,14 @@ class FileCategorizer:
                     
                     # Only process files, not directories
                     if os.path.isfile(item_path):
-                        category = self.get_category(item_path)
-                        
-                        if category not in categorized_files:
-                            categorized_files[category] = []
-                        
-                        categorized_files[category].append(item_path)
+                        add_file(item_path)
         
         except PermissionError as e:
             raise PermissionError(f"Permission denied accessing '{directory}': {e}")
         except Exception as e:
             raise Exception(f"Error scanning directory '{directory}': {e}")
         
-        return categorized_files
+        return dict(categorized_files)
     
     def get_category_count(self, directory: str, recursive: bool = False) -> Dict[str, int]:
         """

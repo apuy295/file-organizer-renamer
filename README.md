@@ -166,7 +166,7 @@ The setup wizard will:
 
 After setup, launch the app by:
 - Double-clicking the **desktop shortcut** (if you created one)
-- OR double-clicking **`File Organizer.vbs`** in the folder
+- OR double-clicking **`gui_unified.pyw`** in the folder
 
 ---
 
@@ -282,7 +282,7 @@ File Organizer + Renamer/
 ├── config.py               # File type definitions
 ├── main.py                 # CLI interface (legacy)
 ├── setup.py                # One-time setup wizard
-├── File Organizer.vbs      # Silent launcher (no console window)
+├── gui_unified.pyw         # Main application (launches without console)
 └── icon.ico                # Application icon
 ```
 

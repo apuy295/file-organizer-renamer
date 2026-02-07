@@ -80,7 +80,14 @@ class FileOperation:
     
     def is_moved(self) -> bool:
         """Check if file will be moved to different directory"""
-        return os.path.dirname(self.source_path) != os.path.dirname(self.target_path)
+        source_dir = os.path.dirname(self.source_path)
+        target_dir = os.path.dirname(self.target_path)
+        
+        try:
+            return not os.path.samefile(source_dir, target_dir)
+        except (FileNotFoundError, OSError):
+            # Fall back to path comparison if samefile fails
+            return os.path.abspath(source_dir) != os.path.abspath(target_dir)
 
 
 class FileOrganizer:
