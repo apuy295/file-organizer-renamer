@@ -577,8 +577,12 @@ Need more help? Check the README.md file in the program folder!
             pyw_path = os.path.join(script_dir, "gui_unified.pyw")
             icon_path = os.path.join(script_dir, "icon.ico")
             
-            # Get desktop path
-            desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+            # Get desktop path (handles OneDrive)
+            onedrive_desktop = os.path.join(os.path.expanduser("~"), "OneDrive", "Desktop")
+            if os.path.exists(onedrive_desktop):
+                desktop = onedrive_desktop
+            else:
+                desktop = os.path.join(os.path.expanduser("~"), "Desktop")
             shortcut_path = os.path.join(desktop, "File Organizer.lnk")
             
             # Remove old shortcut if exists

@@ -32,7 +32,7 @@ class FileCollector:
     
     # Default safe search locations (Windows user folders)
     DEFAULT_SEARCH_PATHS = [
-        os.path.expanduser('~/Desktop'),
+        os.path.join(os.path.expanduser('~'), 'OneDrive', 'Desktop') if os.path.exists(os.path.join(os.path.expanduser('~'), 'OneDrive', 'Desktop')) else os.path.expanduser('~/Desktop'),
         os.path.expanduser('~/Downloads'),
         os.path.expanduser('~/Documents'),
         os.path.expanduser('~/Videos'),

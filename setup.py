@@ -9,6 +9,16 @@ import tkinter as tk
 from tkinter import messagebox
 import subprocess
 
+def get_desktop_path():
+    """Get actual desktop path (handles OneDrive redirected folders)"""
+    # Try OneDrive desktop first (common on Windows 10/11)
+    onedrive_desktop = os.path.join(os.path.expanduser("~"), "OneDrive", "Desktop")
+    if os.path.exists(onedrive_desktop):
+        return onedrive_desktop
+    
+    # Fall back to standard desktop
+    return os.path.join(os.path.expanduser("~"), "Desktop")
+
 def create_desktop_shortcut():
     """Create desktop shortcut (Windows)"""
     try:
@@ -24,8 +34,8 @@ def create_desktop_shortcut():
         if not os.path.exists(pyw_path):
             return False, f"gui_unified.pyw not found in {script_dir}"
         
-        # Get desktop path
-        desktop = os.path.join(os.path.expanduser("~"), "Desktop")
+        # Get desktop path (handles OneDrive)
+        desktop = get_desktop_path()
         shortcut_path = os.path.join(desktop, "File Organizer.lnk")
         
         # Remove old shortcut if exists
