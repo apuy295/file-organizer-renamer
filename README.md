@@ -8,24 +8,24 @@
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)]()
 [![Downloads](https://img.shields.io/github/downloads/lunagray932-ctrl/file-organizer-renamer/total?style=flat-square)](https://github.com/lunagray932-ctrl/file-organizer-renamer/releases)
 
-**[📥 Download Latest Release](https://github.com/lunagray932-ctrl/file-organizer-renamer/releases/latest)** | **[⭐ Star This Project](https://github.com/lunagray932-ctrl/file-organizer-renamer)**
+**[Download Latest Release](https://github.com/lunagray932-ctrl/file-organizer-renamer/releases/latest)** | **[Star This Project](https://github.com/lunagray932-ctrl/file-organizer-renamer)**
 
 ---
 
-## 🔥 Recent Updates (Feb 7, 2026)
+## Recent Updates (Feb 7, 2026)
 
 **Security & Quality Improvements** - Thanks to [@tomysshadow](https://github.com/tomysshadow) for the detailed code review ([#1](https://github.com/lunagray932-ctrl/file-organizer-renamer/issues/1)):
 
-- ✅ **Fixed TOCTOU race condition** in file operations (prevents data loss)
-- ✅ **Replaced deprecated VBScript launcher** with `.pyw` file (Windows 2027-ready)
-- ✅ **Improved path validation** using `os.path.samefile()` for better reliability
-- ✅ **Code quality improvements** with defaultdict and cleaner logic
+- **Fixed TOCTOU race condition** in file operations (prevents data loss)
+- **Replaced deprecated VBScript launcher** with `.pyw` file (Windows 2027-ready)
+- **Improved path validation** using `os.path.samefile()` for better reliability
+- **Code quality improvements** with defaultdict and cleaner logic
 
 See commits [523502a](https://github.com/lunagray932-ctrl/file-organizer-renamer/commit/523502a) and [6a10a70](https://github.com/lunagray932-ctrl/file-organizer-renamer/commit/6a10a70) for details.
 
 ---
 
-## 🌟 What Is This?
+## Overview
 
 **File Organizer + Renamer** is a professional-grade desktop application designed to solve the universal problem of messy files. Whether you have thousands of photos scattered across your PC or a Downloads folder that's become a digital junkyard, this tool brings everything into perfect order **automatically**.
 
@@ -33,7 +33,7 @@ Built with a modern dark-themed GUI, intelligent duplicate detection, and safety
 
 ---
 
-## 🎥 Demo
+## Demo
 
 <div align="center">
 
@@ -43,7 +43,7 @@ Built with a modern dark-themed GUI, intelligent duplicate detection, and safety
 
 </div>
 
-### 📹 Watch It In Action
+### Video Demo
 
 https://github.com/user-attachments/assets/25acbbe9-523a-4785-930e-6deec90d5c39
 
@@ -51,31 +51,31 @@ https://github.com/user-attachments/assets/25acbbe9-523a-4785-930e-6deec90d5c39
 
 ---
 
-## ✨ Key Features
+## Features
 
-### 🎯 **Two Powerful Modes**
+### Two Powerful Modes
 
-#### **Mode 1: Find Scattered Files**
+#### Mode 1: Find Scattered Files
 Hunt down files across your entire PC and collect them into one organized location.
 
-- 🔍 **Smart Scanning**: Searches Desktop, Downloads, Documents, Videos, Music folders
-- 🛡️ **System Protection**: Automatically skips Windows, Program Files, and AppData (safety first!)
-- 📦 **Intelligent Organization**: Groups files by type (images/png/, videos/mp4/, etc.)
-- 🚀 **Zero Data Loss**: Copies files instead of moving them (originals stay safe)
+- **Smart Scanning**: Searches Desktop, Downloads, Documents, Videos, Music folders
+- **System Protection**: Automatically skips Windows, Program Files, and AppData (safety first!)
+- **Intelligent Organization**: Groups files by type (images/png/, videos/mp4/, etc.)
+- **Zero Data Loss**: Copies files instead of moving them (originals stay safe)
 
-#### **Mode 2: Organize Folder**
+#### Mode 2: Organize Folder
 Take any messy folder and transform it into a perfectly organized structure.
 
-- 📂 **Recursive Scanning**: Finds files in nested subfolders
-- 🗂️ **Category Folders**: Creates images/, videos/, documents/, etc.
-- 🔤 **Sub-Folder Organization**: Further organizes by extension (images/png/, images/jpg/)
-- 🧹 **Smart Cleanup**: Removes empty folders after organizing
+- **Recursive Scanning**: Finds files in nested subfolders
+- **Category Folders**: Creates images/, videos/, documents/, etc.
+- **Sub-Folder Organization**: Further organizes by extension (images/png/, images/jpg/)
+- **Smart Cleanup**: Removes empty folders after organizing
 
 ---
 
-### 💎 **Advanced Features**
+### Advanced Features
 
-#### **🔍 Duplicate Detection**
+#### Duplicate Detection
 Never waste space on identical files again.
 
 - **SHA256 Hash Comparison**: Detects true duplicates by analyzing file content (not just names)
@@ -85,7 +85,7 @@ Never waste space on identical files again.
 - **Per-Group Selection**: "Select All Here" buttons for quick decisions
 - **Recycle Bin Safety**: All deletions go to Recycle Bin (fully reversible)
 
-#### **📅 Date-Based Organization**
+#### Date-Based Organization
 Organize files by when they were created or taken.
 
 - **EXIF Date Support**: Reads creation dates from photo metadata (requires Pillow)
@@ -95,14 +95,14 @@ Organize files by when they were created or taken.
   - `year_month_simple` → 2024-03/
 - **Fallback System**: Uses file modification date if EXIF unavailable
 
-#### **📏 Size Filtering**
+#### Size Filtering
 Control which files get organized based on size.
 
 - **Minimum Size**: Skip tiny files like thumbnails and cache (default: 50 KB for Find mode)
 - **Maximum Size**: Filter out large files (0 = no limit)
 - **Smart Defaults**: Find mode filters thumbnails automatically, Organize mode includes all files
 
-#### **⚡ Performance & UX**
+#### Performance & UX
 Built for speed and user experience.
 
 - **Background Threading**: GUI never freezes, even when processing thousands of files
@@ -111,7 +111,7 @@ Built for speed and user experience.
 - **Perfect Scroll Behavior**: Scroll position preserved during auto-updates
 - **Mousewheel Support**: Natural scrolling throughout the entire interface
 
-#### **🛡️ Safety & Recovery**
+#### Safety & Recovery
 Your files are protected at every step.
 
 - **Preview Mode**: See exactly what will happen before committing
@@ -122,7 +122,7 @@ Your files are protected at every step.
 
 ---
 
-## 🎨 User Interface
+## User Interface
 
 **Modern Dark GitHub Theme**
 - Clean, minimal design that's easy on the eyes
@@ -140,15 +140,15 @@ Your files are protected at every step.
 
 ---
 
-## 📦 Installation
+## Installation
 
-### **Step 1: Requirements**
+### Step 1: Requirements
 
 - **Operating System**: Windows 10 or later
 - **Python**: Version 3.8 or higher ([Download here](https://www.python.org/downloads/))
 - **Dependencies**: None required! (Pillow is optional for EXIF date reading)
 
-### **Step 2: Download**
+### Step 2: Download
 
 ```bash
 # Clone this repository
@@ -157,7 +157,7 @@ git clone https://github.com/lunagray932-ctrl/file-organizer-renamer.git
 # Or download as ZIP and extract
 ```
 
-### **Step 3: Setup**
+### Step 3: Setup
 
 ```bash
 # Navigate to the folder
@@ -168,14 +168,14 @@ python setup.py
 ```
 
 The setup wizard will:
-- ✅ Check for optional dependencies
-- ✅ Offer to install Pillow (for EXIF date reading)
-- ✅ Ask if you want a desktop shortcut
-- ✅ Create the launcher
+- Check for optional dependencies
+- Offer to install Pillow (for EXIF date reading)
+- Ask if you want a desktop shortcut
+- Create the launcher
 
 **You only run `setup.py` once!**
 
-### **Step 4: Launch**
+### Step 4: Launch
 
 After setup, launch the app by:
 - Double-clicking the **desktop shortcut** (if you created one)
@@ -183,22 +183,22 @@ After setup, launch the app by:
 
 ---
 
-## 🚀 How to Use
+## Usage
 
-### **Quick Start: Organize Your Downloads Folder**
+### Quick Start: Organize Your Downloads Folder
 
 1. Launch the app
 2. Click **"Organize Folder"** (right tab)
 3. Click **"Browse"** and select your Downloads folder
 4. Leave default options checked:
-   - ✅ Create sub-folders by file type
-   - ✅ Scan all subfolders recursively
-   - ✅ Delete empty folders after organizing
+   - Create sub-folders by file type
+   - Scan all subfolders recursively
+   - Delete empty folders after organizing
 5. Click **"Preview"** to see what will happen (optional but recommended)
 6. Click **"Organize"** to execute
 7. Watch as your Downloads folder transforms into organized categories!
 
-### **Find Scattered Photos Across Your PC**
+### Find Scattered Photos Across Your PC
 
 1. Click **"Find Scattered Files"** (left tab)
 2. Check **"Images"** (and any other file types)
@@ -211,35 +211,35 @@ After setup, launch the app by:
    - **By source folder**: from_desktop/, from_downloads/
 7. Click **"Collect Files"** - your files are now organized!
 
-### **Managing Duplicates**
+### Managing Duplicates
 
 1. Enable **"Find duplicate files"** checkbox before organizing/scanning
-2. After scan completes, click **"📁 Duplicates"** button
+2. After scan completes, click **"Duplicates"** button
 3. Review duplicate groups:
-   - ✅ **Green "KEEP" box**: Newest file (protected, can't delete)
-   - ☑️ **Checkboxes**: Older duplicates (safe to delete)
+   - **Green "KEEP" box**: Newest file (protected, can't delete)
+   - **Checkboxes**: Older duplicates (safe to delete)
 4. Options:
-   - **"📁 Visual Review"**: Opens files in Explorer for side-by-side comparison
-   - **"☑ Select All Here"**: Check all duplicates in that group
+   - **"Visual Review"**: Opens files in Explorer for side-by-side comparison
+   - **"Select All Here"**: Check all duplicates in that group
    - **"Select All"** (bottom): Check all duplicates across all groups
    - **"Select None"**: Uncheck everything
 5. Click **"Delete Selected"** - files go to Recycle Bin (reversible!)
 
 ---
 
-## 🎯 Who Is This For?
+## Who Is This For?
 
-### **Perfect for:**
+### Perfect for:
 
-✅ **Digital Hoarders** - Thousands of files, zero organization  
-✅ **Photographers** - RAW files, JPEGs, and duplicates everywhere  
-✅ **Content Creators** - Videos, projects, and assets scattered across drives  
-✅ **Students** - Documents, PDFs, and screenshots in chaos  
-✅ **Anyone with a messy Downloads folder** - We all have one  
-✅ **IT Professionals** - Manage files for clients or organizations  
-✅ **Minimalists** - Want a clean, organized digital life  
+- **Digital Hoarders** - Thousands of files, zero organization  
+- **Photographers** - RAW files, JPEGs, and duplicates everywhere  
+- **Content Creators** - Videos, projects, and assets scattered across drives  
+- **Students** - Documents, PDFs, and screenshots in chaos  
+- **Anyone with a messy Downloads folder** - We all have one  
+- **IT Professionals** - Manage files for clients or organizations  
+- **Minimalists** - Want a clean, organized digital life  
 
-### **Use Cases:**
+### Use Cases:
 
 - Organizing photo libraries (wedding photos, vacation albums, phone camera dumps)
 - Cleaning up Downloads folder weekly/monthly
@@ -251,36 +251,36 @@ After setup, launch the app by:
 
 ---
 
-## 🗂️ Supported File Formats (150+)
+## Supported File Formats (150+)
 
-### **Images (30+ formats)**
+### Images (30+ formats)
 jpg, jpeg, png, gif, bmp, webp, svg, ico, tiff, tif, heic, heif, raw, cr2, nef, arw, dng, orf, rw2, pef, srw, raf, and more RAW camera formats
 
-### **Videos (20+ formats)**
+### Videos (20+ formats)
 mp4, avi, mkv, mov, wmv, flv, webm, m4v, mpg, mpeg, 3gp, ogv, vob, mts, m2ts, ts
 
-### **Documents (25+ formats)**
+### Documents (25+ formats)
 pdf, doc, docx, txt, rtf, odt, xls, xlsx, ods, ppt, pptx, odp, csv, xml, json, md, tex
 
-### **Audio (15+ formats)**
+### Audio (15+ formats)
 mp3, wav, flac, aac, ogg, m4a, wma, ape, opus, alac
 
-### **Archives (10+ formats)**
+### Archives (10+ formats)
 zip, rar, 7z, tar, gz, bz2, xz, iso
 
-### **Code & Development (40+ formats)**
+### Code & Development (40+ formats)
 py, js, html, css, java, cpp, c, h, cs, php, rb, go, rs, swift, kt, ts, jsx, vue, sh, bat, ps1, sql, and more
 
-### **Other**
+### Other
 exe, msi, dll, apk, dmg, pkg, deb, rpm, torrent, psd, ai, eps, sketch, fig, blend, max, fbx
 
 **Don't see your format?** Edit `config.py` to add custom categories!
 
 ---
 
-## ⚙️ Technical Details
+## Technical Details
 
-### **Architecture**
+### Architecture
 
 ```
 File Organizer + Renamer/
@@ -299,7 +299,7 @@ File Organizer + Renamer/
 └── icon.ico                # Application icon
 ```
 
-### **Technologies**
+### Technologies
 
 - **Language**: Python 3.8+
 - **GUI Framework**: tkinter (built-in, no installation needed)
@@ -308,7 +308,7 @@ File Organizer + Renamer/
 - **Optional**: Pillow (for EXIF metadata reading)
 - **Platform**: Windows-optimized (Recycle Bin, shortcuts, file operations)
 
-### **Performance**
+### Performance
 
 - **Scan Speed**: ~2000-5000 files/second (depends on drive speed)
 - **Memory**: Minimal footprint, handles 100,000+ files
@@ -317,9 +317,9 @@ File Organizer + Renamer/
 
 ---
 
-## 🛡️ Safety Features
+## Safety Features
 
-### **Data Protection**
+### Data Protection
 
 1. **No Deletion by Default**: Files are moved/copied, never deleted (except in Duplicate Manager)
 2. **Recycle Bin Integration**: All deletions are reversible via Windows Recycle Bin
@@ -328,7 +328,7 @@ File Organizer + Renamer/
 5. **Preview Mode**: See changes before they happen
 6. **Full Undo System**: JSON logs allow complete reversal of operations
 
-### **Error Handling**
+### Error Handling
 
 - Files in use by other programs are skipped (logged)
 - Permission errors are handled gracefully
@@ -337,7 +337,7 @@ File Organizer + Renamer/
 
 ---
 
-## 📖 Documentation
+## Documentation
 
 - **Built-in Help**: Click the red "Help" button in the app
 - **FAQ.md**: Frequently asked questions
@@ -347,7 +347,7 @@ File Organizer + Renamer/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Found a bug? Have a feature idea? Contributions are welcome!
 
@@ -359,7 +359,7 @@ Found a bug? Have a feature idea? Contributions are welcome!
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -367,7 +367,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Icons**: Emoji-based icons for universal compatibility
 - **Design**: Inspired by GitHub's dark theme
@@ -377,26 +377,26 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## � Privacy & Data Security
+## Privacy & Data Security
 
 **Your files, your computer, your privacy. Period.**
 
 This tool is built with privacy and security as core principles:
 
-### **100% Offline Operation**
-- ✅ **No Internet Connection Required**: Works completely offline
-- ✅ **Zero Network Calls**: No data sent anywhere, ever
-- ✅ **No Telemetry**: No usage statistics, crash reports, or analytics collected
-- ✅ **No Cloud Services**: All processing happens locally on your machine
-- ✅ **No External APIs**: No third-party services contacted
+### 100% Offline Operation
+- **No Internet Connection Required**: Works completely offline
+- **Zero Network Calls**: No data sent anywhere, ever
+- **No Telemetry**: No usage statistics, crash reports, or analytics collected
+- **No Cloud Services**: All processing happens locally on your machine
+- **No External APIs**: No third-party services contacted
 
-### **Your Data Stays Yours**
-- 🔒 **No Data Collection**: Your files are never seen, stored, or accessed by anyone
-- 🔒 **No User Tracking**: No accounts, no logins, no tracking cookies
-- 🔒 **No File Uploads**: Files never leave your computer
-- 🔒 **Open Source**: All code is visible - inspect it yourself!
+### Your Data Stays Yours
+- **No Data Collection**: Your files are never seen, stored, or accessed by anyone
+- **No User Tracking**: No accounts, no logins, no tracking cookies
+- **No File Uploads**: Files never leave your computer
+- **Open Source**: All code is visible - inspect it yourself!
 
-### **What Data Is Processed?**
+### What Data Is Processed?
 
 **Locally Only:**
 - File paths, names, sizes, and dates (read from your file system)
@@ -409,15 +409,15 @@ This tool is built with privacy and security as core principles:
 - Your file organization preferences stay on your machine
 - No personal information, IP addresses, or device IDs collected
 
-### **Security Features**
+### Security Features
 
-- 🛡️ **System Folder Protection**: Skips critical Windows folders automatically
-- 🛡️ **No Admin Rights Required**: Runs with user-level permissions only
-- 🛡️ **Recycle Bin Integration**: Deleted files can be restored from Windows Recycle Bin
-- 🛡️ **Preview Before Changes**: See exactly what will happen before committing
-- 🛡️ **Full Audit Trail**: All operations logged locally for transparency
+- **System Folder Protection**: Skips critical Windows folders automatically
+- **No Admin Rights Required**: Runs with user-level permissions only
+- **Recycle Bin Integration**: Deleted files can be restored from Windows Recycle Bin
+- **Preview Before Changes**: See exactly what will happen before committing
+- **Full Audit Trail**: All operations logged locally for transparency
 
-### **Open Source Transparency**
+### Open Source Transparency
 
 Every line of code is available for inspection:
 - Review the entire codebase on GitHub
@@ -425,7 +425,7 @@ Every line of code is available for inspection:
 - No obfuscation or encryption of code
 - Community-auditable for security concerns
 
-### **GDPR & Privacy Compliance**
+### GDPR & Privacy Compliance
 
 Since this tool:
 - Operates entirely offline
@@ -439,25 +439,25 @@ Since this tool:
 
 ---
 
-## 📞 Support
+## Support
 
 - **Issues**: [GitHub Issues](https://github.com/lunagray932-ctrl/file-organizer-renamer/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/lunagray932-ctrl/file-organizer-renamer/discussions)
 
 ---
 
-## 🎯 Project Status
+## Project Status
 
 **Current Version**: 2.0.0 (Production Ready)
 
 **Recent Updates:**
-- ✅ Unified GUI with dual modes
-- ✅ Advanced duplicate detection with visual review
-- ✅ Per-group selection in Duplicate Manager
-- ✅ Full screen results viewer with perfect scroll behavior
-- ✅ Background threading for all long operations
-- ✅ Desktop shortcut setup wizard
-- ✅ Window focus management for seamless workflow
+- Unified GUI with dual modes
+- Advanced duplicate detection with visual review
+- Per-group selection in Duplicate Manager
+- Full screen results viewer with perfect scroll behavior
+- Background threading for all long operations
+- Desktop shortcut setup wizard
+- Window focus management for seamless workflow
 
 **Tested On:**
 - Windows 11 (Primary)
@@ -466,9 +466,9 @@ Since this tool:
 
 ---
 
-## ⭐ Star This Project!
+## Star This Project
 
-If File Organizer + Renamer helped you tame your digital chaos, please consider giving it a ⭐ star on GitHub! It helps others discover this tool and motivates continued development.
+If File Organizer + Renamer helped you tame your digital chaos, please consider giving it a star on GitHub! It helps others discover this tool and motivates continued development.
 
 ---
 
