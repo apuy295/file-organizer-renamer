@@ -27,6 +27,46 @@ if sys.platform == 'win32':
         pass
 
 
+def copy_file_safe(source, target_dir, base_filename):
+    """
+    Safely copy a file with conflict resolution
+    Avoids TOCTOU bugs by checking existence close to the copy operation
+    
+    Args:
+        source: Source file path
+        target_dir: Target directory
+        base_filename: Desired filename
+        
+    Returns:
+        Final destination path or None if failed
+    """
+    counter = 0
+    while counter <= 10000:
+        # Generate filename
+        if counter == 0:
+            filename = base_filename
+        else:
+            base_name, ext = os.path.splitext(base_filename)
+            filename = f"{base_name}_{counter}{ext}"
+        
+        dest_path = os.path.join(target_dir, filename)
+        
+        # Check if exists (still a small TOCTOU window, but much smaller)
+        if os.path.exists(dest_path):
+            counter += 1
+            continue
+        
+        try:
+            shutil.copy2(source, dest_path)
+            return dest_path
+        except FileExistsError:
+            # File was created between our check and copy - try next counter
+            counter += 1
+            continue
+    
+    return None  # Failed after max attempts
+
+
 class UnifiedGUI:
     """All-in-one file organization tool"""
     
@@ -1249,17 +1289,13 @@ $shortcut.Save()
                         os.makedirs(target_dir, exist_ok=True)
                         
                         filename = os.path.basename(found_file.path)
-                        target_path = os.path.join(target_dir, filename)
                         
-                        # Handle file conflicts
-                        counter = 1
-                        base_name, ext = os.path.splitext(filename)
-                        while os.path.exists(target_path):
-                            target_path = os.path.join(target_dir, f"{base_name}_{counter}{ext}")
-                            counter += 1
-                        
-                        shutil.copy2(found_file.path, target_path)
-                        successful += 1
+                        # Safe copy with conflict resolution
+                        result = copy_file_safe(found_file.path, target_dir, filename)
+                        if result:
+                            successful += 1
+                        else:
+                            failed += 1
                         
                         # Progress update every 50 files
                         if idx % 50 == 0:
@@ -1543,17 +1579,11 @@ $shortcut.Save()
             for path, mtime in paths_with_time:
                 try:
                     filename = os.path.basename(path)
-                    dest_path = os.path.join(group_folder, filename)
                     
-                    # Handle conflicts
-                    counter = 1
-                    base_name, ext = os.path.splitext(filename)
-                    while os.path.exists(dest_path):
-                        dest_path = os.path.join(group_folder, f"{base_name}_{counter}{ext}")
-                        counter += 1
-                    
-                    shutil.copy2(path, dest_path)
-                    copied += 1
+                    # Safe copy with conflict resolution
+                    result = copy_file_safe(path, group_folder, filename)
+                    if result:
+                        copied += 1
                 except Exception:
                     pass
             

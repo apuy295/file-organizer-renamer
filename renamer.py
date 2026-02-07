@@ -64,42 +64,24 @@ class FileRenamer:
         # Reconstruct filename with extension
         return f"{name}{ext.lower()}"
     
-    def get_safe_filename(self, target_dir: str, filename: str) -> str:
+    def generate_unique_filename(self, base_filename: str, counter: int = 0) -> str:
         """
-        Get a safe filename that doesn't conflict with existing files
-        Appends (1), (2), etc. if file already exists
+        Generate a filename with counter suffix if needed
         
         Args:
-            target_dir: Directory where the file will be placed
-            filename: Desired filename
+            base_filename: Base filename
+            counter: Counter to append (0 means no suffix)
             
         Returns:
-            Safe filename that doesn't exist in target_dir
+            Filename with counter suffix if counter > 0
         """
-        target_path = os.path.join(target_dir, filename)
+        if counter == 0:
+            return base_filename
         
-        # If no conflict, return as is
-        if not os.path.exists(target_path):
-            return filename
-        
-        # Handle conflict by adding counter
-        path = Path(filename)
+        path = Path(base_filename)
         name = path.stem
         ext = path.suffix
-        
-        counter = 1
-        while True:
-            new_filename = f"{name}({counter}){ext}"
-            new_path = os.path.join(target_dir, new_filename)
-            
-            if not os.path.exists(new_path):
-                return new_filename
-            
-            counter += 1
-            
-            # Safety check to prevent infinite loop
-            if counter > 10000:
-                raise ValueError(f"Too many conflicting files for '{filename}'")
+        return f"{name}({counter}){ext}"
     
     def rename_file(self, file_path: str) -> str:
         """

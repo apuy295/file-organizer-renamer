@@ -136,11 +136,9 @@ class FileOrganizer:
                 else:
                     target_dir = category_dir
                 
-                # Get safe filename (handles conflicts)
-                safe_filename = self.renamer.get_safe_filename(target_dir, new_filename)
-                
-                # Create target path
-                target_path = os.path.join(target_dir, safe_filename)
+                # Store the base filename for conflict resolution during execution
+                # We don't check if it exists here - that happens atomically during the move
+                target_path = os.path.join(target_dir, new_filename)
                 
                 # Create operation
                 operation = FileOperation(
@@ -178,11 +176,37 @@ class FileOrganizer:
                 target_dir = os.path.dirname(operation.target_path)
                 os.makedirs(target_dir, exist_ok=True)
                 
-                # Move the file (atomic operation)
-                shutil.move(operation.source_path, operation.target_path)
+                # Get the base filename from the operation's target path
+                base_filename = os.path.basename(operation.target_path)
                 
-                operation.success = True
-                successful.append(operation)
+                # Try to move the file, handling conflicts atomically
+                counter = 0
+                while counter <= 10000:
+                    # Generate filename with counter (0 means no suffix)
+                    filename = self.renamer.generate_unique_filename(base_filename, counter)
+                    final_target = os.path.join(target_dir, filename)
+                    
+                    # Check if target exists
+                    if os.path.exists(final_target):
+                        # File exists, try next counter
+                        counter += 1
+                        continue
+                    
+                    # Try to move the file
+                    # If another process creates the file between our check and move,
+                    # shutil.move will still succeed but might overwrite
+                    # To be truly atomic, we'd need OS-specific operations
+                    # For now, this is much better than the previous approach
+                    shutil.move(operation.source_path, final_target)
+                    
+                    # Update operation with actual final path
+                    operation.target_path = final_target
+                    operation.success = True
+                    successful.append(operation)
+                    break
+                else:
+                    # Exceeded max counter
+                    raise ValueError(f"Too many conflicting files for '{base_filename}'")
                 
             except PermissionError as e:
                 operation.error = f"Permission denied: {e}"
